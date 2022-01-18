@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>Hardt Veiculo</title>
+
+</head>
+<body>
+<div class="container">
+    <h2>Veiculo Detalhes</h2>
+    <div>
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Id:</label>
+                <div class="col-sm-10">
+                    <p class="form-control-static" th:text="${veiculo.id}">${veiculo.id}</p></div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Marca:</label>
+                <div class="col-sm-10">
+                    <p class="form-control-static" th:text="${veiculo.marca}">${veiculo.marca}</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Modelo:</label>
+                <div class="col-sm-10">
+                    <p class="form-control-static" th:text="${veiculo.modelo}">${veiculo.modelo}</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Cor:</label>
+                <div class="col-sm-10">
+                    <p class="form-control-static" th:text="${veiculo.cor}">${veiculo.cor}</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Placa:</label>
+                <div class="col-sm-10">
+                    <p class="form-control-static" th:text="${veiculo.placa}">${veiculo.placa}</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Disponibilidade:</label>
+                <div class="col-sm-10">
+                    <p class="form-control-static" th:text="${veiculo.disponibilidade}">${veiculo.disponibilidade}</p>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

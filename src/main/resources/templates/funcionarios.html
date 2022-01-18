@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>Hardt Veiculos</title>
+
+</head>
+<body>
+<div class="container">
+
+    <div th:if="${not #lists.isEmpty(funcionarios)}">
+        <h2>Listagem de Funcionarios</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>CPF</th>
+                <th>Cargo</th>
+                <th> /</th>
+                <th>Visualizar</th>
+                <th>Editar</th>
+                <th>Deletar</th>
+            </tr>
+            <tr th:each="funcionario : ${funcionarios}">
+                <td th:text="${funcionario.id}">Id</td>
+                <td th:text="${funcionario.nome}">Nome</td>
+                <td th:text="${funcionario.cpf}">CPF</td>
+                <td th:text="${funcionario.cargo}">Cargo</td>
+                <td> /</td>
+                <td><a th:href="${ '/funcionario/' + funcionario.id}">X</a></td>
+                <td><a th:href="${'/funcionario/editar/' + funcionario.id}">X</a></td>
+                <td><a th:href="${'/funcionario/deletar/' + funcionario.id}">X</a></td>
+            </tr>
+        </table>
+
+    </div>
+</div>
+
+</body>
+</html>

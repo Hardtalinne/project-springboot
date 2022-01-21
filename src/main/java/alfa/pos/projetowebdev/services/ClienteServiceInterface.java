@@ -2,13 +2,15 @@ package alfa.pos.projetowebdev.services;
 
 import alfa.pos.projetowebdev.model.Cliente;
 
+import java.util.List;
+
 public interface ClienteServiceInterface {
 
-    Iterable<Cliente> findAll();
+    List<Cliente> findAll();
 
-    Cliente getCliente(Integer id);
+    Cliente getCliente(Long id);
 
     Cliente save(Cliente cliente);
 
-    void delete(Integer id);
+    void delete(Long id);
 }

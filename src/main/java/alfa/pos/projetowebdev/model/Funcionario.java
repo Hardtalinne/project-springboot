@@ -4,14 +4,17 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(name = "funcionario")
 public class Funcionario {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String nome;
     private String cpf;
     private String cargo;
+    private String login;
+    private String senha;
 
     @OneToOne(cascade = CascadeType.ALL)
     private Endereco endereco;
@@ -23,11 +26,12 @@ public class Funcionario {
         super();
     }
 
-    public Funcionario(String nome, String cpf, Endereco endereco, List<Telefone> telefone) {
+    public Funcionario(String nome, String cpf, String cargo, String login, String senha) {
         this.nome = nome;
         this.cpf = cpf;
-        this.endereco = endereco;
-        this.telefone = telefone;
+        this.cargo = cargo;
+        this.login = login;
+        this.senha = senha;
     }
 
     public String getCargo() {
@@ -78,12 +82,31 @@ public class Funcionario {
         this.telefone = telefone;
     }
 
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
 
     @Override
     public String toString() {
-        return "[ Nome: " + this.nome +
-                ", Endereco: " + this.endereco +
-                ", Telefone: " + this.telefone +
-                " ]";
+        return "Funcionario{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", cpf='" + cpf + '\'' +
+                ", cargo='" + cargo + '\'' +
+                ", login='" + login + '\'' +
+                ", senha='" + senha + '\'' +
+                '}';
     }
 }

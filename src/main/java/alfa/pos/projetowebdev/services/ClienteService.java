@@ -5,9 +5,12 @@ import alfa.pos.projetowebdev.model.Cliente;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ClienteService implements ClienteServiceInterface {
 
+    @Autowired
     private IRepositorioCliente repositorioCliente;
 
     @Autowired
@@ -16,12 +19,12 @@ public class ClienteService implements ClienteServiceInterface {
     }
 
     @Override
-    public Iterable<Cliente> findAll() {
+    public List<Cliente> findAll() {
         return repositorioCliente.findAll();
     }
 
     @Override
-    public Cliente getCliente(Integer id) {
+    public Cliente getCliente(Long id) {
         return repositorioCliente.getById(id);
     }
 
@@ -31,7 +34,8 @@ public class ClienteService implements ClienteServiceInterface {
     }
 
     @Override
-    public void delete(Integer id) {
+    public void delete(Long id) {
         repositorioCliente.deleteById(id);
     }
+
 }

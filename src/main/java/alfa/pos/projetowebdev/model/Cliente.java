@@ -4,11 +4,12 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(name = "cliente")
 public class Cliente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private Long id;
 
     private String nome;
     private String cpf;
@@ -26,9 +27,11 @@ public class Cliente {
         super();
     }
 
-    public Cliente(String nome, String cpf) {
+    public Cliente(String nome, String cpf, String login, String senha) {
         this.nome = nome;
         this.cpf = cpf;
+        this.login = login;
+        this.senha = senha;
     }
 
     public String getLogin() {
@@ -47,11 +50,11 @@ public class Cliente {
         this.senha = senha;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -87,4 +90,14 @@ public class Cliente {
         this.telefone = telefone;
     }
 
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", cpf='" + cpf + '\'' +
+                ", login='" + login + '\'' +
+                ", senha='" + senha + '\'' +
+                '}';
+    }
 }

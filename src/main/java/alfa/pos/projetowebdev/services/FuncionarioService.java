@@ -5,6 +5,8 @@ import alfa.pos.projetowebdev.model.Funcionario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class FuncionarioService implements FuncionarioServiceInterface {
 
@@ -16,12 +18,12 @@ public class FuncionarioService implements FuncionarioServiceInterface {
     }
 
     @Override
-    public Iterable<Funcionario> findAll() {
+    public List<Funcionario> findAll() {
         return repositorioFuncionario.findAll();
     }
 
     @Override
-    public Funcionario getFuncionario(Integer id) {
+    public Funcionario getFuncionario(Long id) {
         return repositorioFuncionario.getById(id);
     }
 
@@ -31,7 +33,7 @@ public class FuncionarioService implements FuncionarioServiceInterface {
     }
 
     @Override
-    public void delete(Integer id) {
+    public void delete(Long id) {
         repositorioFuncionario.deleteById(id);
     }
 }

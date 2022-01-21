@@ -2,13 +2,15 @@ package alfa.pos.projetowebdev.services;
 
 import alfa.pos.projetowebdev.model.Veiculo;
 
+import java.util.List;
+
 public interface VeiculoServiceInterface {
 
-    Iterable<Veiculo> findAll();
+    List <Veiculo> findAll();
 
-    Veiculo getVeiculo(Integer id);
+    Veiculo getVeiculo(Long id);
 
     Veiculo save(Veiculo veiculo);
 
-    void delete(Integer id);
+    void delete(Long id);
 }

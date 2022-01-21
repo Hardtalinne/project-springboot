@@ -1,21 +1,33 @@
 package alfa.pos.projetowebdev.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "veiculo")
 public class Veiculo {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String marca;
     private String modelo;
-    private int ano;
+    private String ano;
     private String placa;
     private String cor;
     private boolean disponibilidade;
+
+    public Veiculo() {
+        super();
+    }
+
+    public Veiculo(String marca, String modelo, String ano, String placa, String cor, boolean disponibilidade) {
+        this.marca = marca;
+        this.modelo = modelo;
+        this.ano = ano;
+        this.placa = placa;
+        this.cor = cor;
+        this.disponibilidade = disponibilidade;
+    }
 
     public Long getId() {
         return id;
@@ -41,11 +53,11 @@ public class Veiculo {
         this.modelo = modelo;
     }
 
-    public int getAno() {
+    public String getAno() {
         return ano;
     }
 
-    public void setAno(int ano) {
+    public void setAno(String ano) {
         this.ano = ano;
     }
 
@@ -71,5 +83,18 @@ public class Veiculo {
 
     public void setDisponibilidade(boolean disponibilidade) {
         this.disponibilidade = disponibilidade;
+    }
+
+    @Override
+    public String toString() {
+        return "Veiculo{" +
+                "id=" + id +
+                ", marca='" + marca + '\'' +
+                ", modelo='" + modelo + '\'' +
+                ", ano='" + ano + '\'' +
+                ", placa='" + placa + '\'' +
+                ", cor='" + cor + '\'' +
+                ", disponibilidade=" + disponibilidade +
+                '}';
     }
 }

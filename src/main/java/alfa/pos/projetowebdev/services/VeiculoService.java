@@ -5,6 +5,8 @@ import alfa.pos.projetowebdev.model.Veiculo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class VeiculoService implements VeiculoServiceInterface {
 
@@ -16,12 +18,12 @@ public class VeiculoService implements VeiculoServiceInterface {
     }
 
     @Override
-    public Iterable<Veiculo> findAll() {
+    public List <Veiculo> findAll() {
         return repositorioVeiculo.findAll();
     }
 
     @Override
-    public Veiculo getVeiculo(Integer id) {
+    public Veiculo getVeiculo(Long id) {
         return repositorioVeiculo.getById(id);
     }
 
@@ -31,7 +33,7 @@ public class VeiculoService implements VeiculoServiceInterface {
     }
 
     @Override
-    public void delete(Integer id) {
+    public void delete(Long id) {
         repositorioVeiculo.deleteById(id);
     }
 }

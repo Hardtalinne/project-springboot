@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class VeiculoController {
@@ -21,38 +22,39 @@ public class VeiculoController {
 
     @RequestMapping({"/veiculos"})
     public String listar(Model model) {
-        model.addAttribute("veiculos", veiculoService.findAll());
+        model.addAttribute("veiculo", veiculoService.findAll());
         return "veiculos";
     }
 
     @RequestMapping(value = "veiculo/{id}", method = RequestMethod.GET)
-    public String buscar(@PathVariable Integer id, Model model) {
+    public String buscar(@PathVariable Long id, Model model) {
         Veiculo veiculo = veiculoService.getVeiculo(id);
         model.addAttribute("veiculo", veiculoService.getVeiculo(id));
-        return "veiculo-visualizar";
+        return "veiculo-cadastrar";
     }
 
-    @RequestMapping(value = "veiculo/editar/{id}", method = RequestMethod.PUT)
-    public String editar(@PathVariable Integer id, Model model) {
+    @RequestMapping(value = "veiculo/editar/{id}", method = RequestMethod.GET)
+    public String editar(@PathVariable Long id, Model model) {
         model.addAttribute("veiculo", veiculoService.getVeiculo(id));
-        return "veiculo-formulario";
+        return "veiculo-cadastrar";
+    }
+
+    @RequestMapping(value = "veiculo/cadastrar", method = RequestMethod.GET)
+    public String cadastrar(Model model) {
+        model.addAttribute("veiculo", new Veiculo());
+        return "veiculo-cadastrar";
     }
 
     @RequestMapping(value = "veiculo/cadastrar", method = RequestMethod.POST)
-    public String cadastrar(Model model) {
-        model.addAttribute("veiculo", new Veiculo());
-        return "veiculo-formulario";
-    }
-
-    @RequestMapping(value = "veiculo", method = RequestMethod.POST)
     public String save(Veiculo veiculo) {
         veiculoService.save(veiculo);
-        return "redirect:/veiculo/" + veiculo.getId();
+        return "redirect:/veiculo-cadastrar/" + veiculo.getId();
     }
 
-    @RequestMapping(value = "veiculo/delete/{id}")
-    public String delete(@PathVariable Integer id) {
+    @RequestMapping(value = "/veiculo/deletar", method = RequestMethod.GET)
+    public String deleteTodo(@RequestParam Long id) {
         veiculoService.delete(id);
-        return "redirect:/veiculo";
+        return "redirect:/veiculos";
     }
+
 }

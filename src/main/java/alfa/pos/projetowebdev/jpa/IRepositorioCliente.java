@@ -5,5 +5,5 @@ import alfa.pos.projetowebdev.model.Cliente;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface IRepositorioCliente extends JpaRepository<Cliente, Integer> {
+public interface IRepositorioCliente extends JpaRepository<Cliente, Long> {
 }

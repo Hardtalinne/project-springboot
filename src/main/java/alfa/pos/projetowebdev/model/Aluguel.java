@@ -11,16 +11,31 @@ public class Aluguel {
     private Long id;
     private Date dataAluguel;
     private String valorAluguel;
+    private Date dataDevolucao;
 
     @OneToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "cliente_id")
+    @JoinColumn(name = "cliente_id")
     private Cliente cliente;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "veiculo_id")
+    private Veiculo veiculo;
+
     @ManyToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "funcionario_id")
+    @JoinColumn(name = "funcionario_id")
     private Funcionario funcionario;
 
-    private Date dataDevolucao;
+    public Aluguel() {
+    }
+
+    public Aluguel(Date dataAluguel, String valorAluguel, Date dataDevolucao, Cliente cliente, Veiculo veiculo, Funcionario funcionario) {
+        this.dataAluguel = dataAluguel;
+        this.valorAluguel = valorAluguel;
+        this.dataDevolucao = dataDevolucao;
+        this.cliente = cliente;
+        this.veiculo = veiculo;
+        this.funcionario = funcionario;
+    }
 
     public Long getId() {
         return id;
@@ -68,5 +83,13 @@ public class Aluguel {
 
     public void setValorAluguel(String valorAluguel) {
         this.valorAluguel = valorAluguel;
+    }
+
+    public Veiculo getVeiculo() {
+        return veiculo;
+    }
+
+    public void setVeiculo(Veiculo veiculo) {
+        this.veiculo = veiculo;
     }
 }

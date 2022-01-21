@@ -1,5 +1,6 @@
 <%@ include file="common/header.jspf" %>
 <%@ include file="common/navigation.jspf" %>
+<%@ page contentType="text/html" pageEncoding="UTF-8"%>
 
 <div class="container">
     <div class="row">
@@ -9,7 +10,7 @@
                 <div class="panel-body">
                     <form:form method="post" modelAttribute="funcionario">
                         <form:hidden path="id"/>
-                        <fieldset class="form-group">
+                        <div class="form-group">
                             <form:label path="nome">Nome</form:label>
                             <form:input path="nome" type="text" class="form-control"
                                         required="required"/>
@@ -22,8 +23,8 @@
                             <form:input path="cargo" type="text" class="form-control"
                                         required="required"/>
                             <form:errors path="cargo" cssClass="text-warning"/>
-                        </fieldset>
-                        <fieldset class="form-group">
+                        </div>
+                        <div class="form-group">
                             <form:label path="login">Login</form:label>
                             <form:input path="login" type="text" class="form-control"
                                         required="required"/>
@@ -32,7 +33,7 @@
                             <form:input path="senha" type="text" class="form-control"
                                         required="required"/>
                             <form:errors path="senha" cssClass="text-warning"/>
-                        </fieldset>
+                        </div>
 
                         <button type="submit" class="btn btn-success">Salvar</button>
                     </form:form>

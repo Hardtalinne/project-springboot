@@ -1,10 +1,12 @@
 package alfa.pos.projetowebdev.controllers;
 
+import alfa.pos.projetowebdev.model.Funcionario;
 import alfa.pos.projetowebdev.model.Veiculo;
 import alfa.pos.projetowebdev.services.VeiculoServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -33,9 +35,10 @@ public class VeiculoController {
         return "veiculo-cadastrar";
     }
 
-    @RequestMapping(value = "veiculo/editar/{id}", method = RequestMethod.GET)
-    public String editar(@PathVariable Long id, Model model) {
-        model.addAttribute("veiculo", veiculoService.getVeiculo(id));
+    @RequestMapping(value = "veiculo/editar", method = RequestMethod.GET)
+    public String showUpdateTodoPage(@RequestParam long id, ModelMap model) {
+        Veiculo veiculo = veiculoService.getVeiculo(id);
+        model.put("veiculo", veiculo);
         return "veiculo-cadastrar";
     }
 

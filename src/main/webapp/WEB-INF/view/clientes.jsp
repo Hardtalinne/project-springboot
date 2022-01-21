@@ -1,5 +1,6 @@
 <%@ include file="common/header.jspf" %>
 <%@ include file="common/navigation.jspf" %>
+<%@ page contentType="text/html" pageEncoding="UTF-8"%>
 
 <div class="container">
     <div>
@@ -14,9 +15,10 @@
             <table class="table table-striped">
                 <thead>
                 <tr>
-                    <th width="40%">Codigo</th>
-                    <th width="40%">Nome</th>
-                    <th width="40%">CPF</th>
+                    <th width="7%">Codigo</th>
+                    <th width="15%">Nome</th>
+                    <th width="15%">CPF</th>
+                    <th width="50%">Endereço</th>
                     <th width="20%"></th>
                 </tr>
                 </thead>
@@ -26,9 +28,11 @@
                         <td>${cliente.id}</td>
                         <td>${cliente.nome}</td>
                         <td>${cliente.cpf}</td>
+                        <td>Logradouro: ${cliente.endereco.logradouro}, N°: ${cliente.endereco.numero}
+                            / CEP: ${cliente.endereco.cep} - Cidade: ${cliente.endereco.cidade}  </td>
                         <td><a type="button" class="btn btn-success"
                                href="/cliente/editar?id=${cliente.id}">Atualizar</a>
-                            <a type="button" class="btn btn-warning"
+                            <a type="button" class="btn btn-secundary"
                                href="/cliente/deletar?id=${cliente.id}">Deletar</a></td>
                     </tr>
                 </c:forEach>

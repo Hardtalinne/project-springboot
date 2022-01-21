@@ -55,14 +55,4 @@ public class ClienteController {
         clienteService.delete(id);
         return "redirect:/clientes";
     }
-
-//    private String getLoggedInUserName(ModelMap model) {
-//        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//
-//        if (principal instanceof UserDetails) {
-//            return ((UserDetails) principal).getUsername();
-//        }
-//
-//        return principal.toString();
-//    }
 }

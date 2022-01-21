@@ -1,5 +1,6 @@
 <%@ include file="common/header.jspf" %>
 <%@ include file="common/navigation.jspf" %>
+<%@ page contentType="text/html" pageEncoding="UTF-8"%>
 
 <div class="container">
     <div>
@@ -14,10 +15,10 @@
             <table class="table table-striped">
                 <thead>
                 <tr>
-                    <th width="40%">Codigo</th>
-                    <th width="40%">Nome</th>
-                    <th width="40%">CPF</th>
-                    <th width="40%">Cargo</th>
+                    <th width="10%">Codigo</th>
+                    <th width="20%">Nome</th>
+                    <th width="20%">CPF</th>
+                    <th width="20%">Cargo</th>
                     <th width="20%"></th>
                 </tr>
                 </thead>
@@ -30,7 +31,7 @@
                         <td>${funcionario.cargo}</td>
                         <td><a type="button" class="btn btn-success"
                                href="/funcionario/editar?id=${funcionario.id}">Atualizar</a>
-                            <a type="button" class="btn btn-warning"
+                            <a type="button" class="btn btn-secundary"
                                href="/funcionario/deletar?id=${funcionario.id}">Deletar</a></td>
                     </tr>
                 </c:forEach>
